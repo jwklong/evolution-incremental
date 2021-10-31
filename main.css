@@ -2,7 +2,7 @@ body{
     text-align: center;
     background-color: #333333;
     color: #ffffff;
-    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-family: "Comic Sans MS", "Comic Sans", sans-serif;
 }
 
 div{
@@ -22,6 +22,8 @@ div *{
 .button{
     border: 3px solid #ffffff;
     padding: 10px;
+    width: 30%;
+    height: 20%;
     background-color: #222222;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
