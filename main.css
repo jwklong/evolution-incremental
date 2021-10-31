@@ -1,0 +1,32 @@
+body{
+    text-align: center;
+    background-color: #333333;
+    color: #ffffff;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+div{
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+}
+
+div *{
+    margin: 1%;
+}
+
+#eleccount{
+    color: #ffff00
+}
+
+.button{
+    border: 3px solid #ffffff;
+    padding: 10px;
+    background-color: #222222;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
