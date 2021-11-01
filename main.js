@@ -3,14 +3,14 @@ var evesps = new OmegaNum("0")
 const evupgrades = {
     "upg1": new EvUpgrade(new OmegaNum("15"),
         level => new OmegaNum(new OmegaNum("0.2").mul(level)).add(1),
-        level => new OmegaNum("1").mul(new OmegaNum("1.5").pow(level))),
+        level => new OmegaNum("1").mul(new OmegaNum("2").pow(level))),
     "upg2": new EvUpgrade(new OmegaNum("50"),
         level => new OmegaNum(new OmegaNum("0.25").mul(level)).add(1),
-        level => new OmegaNum(eves.logBase("150").mul(level)).add(1)
+        level => new OmegaNum(eves.logBase("5").logBase("5").mul(level)).add(1)
     )
 }
 var bigbangs = 0
-const bbcosts = [[new OmegaNum("0"),"Electron"],[new OmegaNum("1e15"),"Atom"]]
+const bbcosts = [[new OmegaNum("0"),"Electron I"],[new OmegaNum("1e6"),"Electron II"]]
 var interval = null
 
 function bigBang(no) {
@@ -18,7 +18,7 @@ function bigBang(no) {
         eves = new OmegaNum("0")
         bigbangs += 1
     }
-    bbcosts[bigbangs] === undefined ? document.getElementById("bigbangbutton").innerHTML = "No more Big Bangs available<br>Come back next update for more!" : document.getElementById("bigbangbutton").innerHTML = "Do a Big Bang.<br>" + bbcosts[bigbangs][0].toStringWithDecimalPlaces(4) + " Evolution Essence";
+    bbcosts[bigbangs] === undefined ? document.getElementById("bigbangbutton").innerHTML = "No more Big Bangs available<br>More coming soon..." : document.getElementById("bigbangbutton").innerHTML = "Do a Big Bang.<br>" + bbcosts[bigbangs][0].toStringWithDecimalPlaces(4) + " Evolution Essence";
     document.getElementById("rank").innerHTML = bigbangs > 0 ? "Rank: " + bbcosts[bigbangs-1][1] : "Rank: Nothing"
     if (bigbangs > 0) {
         if (interval !== null) clearInterval(interval)
