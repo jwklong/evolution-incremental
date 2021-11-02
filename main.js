@@ -2,11 +2,11 @@ var eves = new OmegaNum("0")
 var evesps = new OmegaNum("0")
 const evupgrades = {
     "upg1": new EvUpgrade(new OmegaNum("15"),
-        level => new OmegaNum(new OmegaNum("0.2").mul(level)).add(1),
+        level => new OmegaNum(new OmegaNum("0.25").mul(level)).add(1),
         level => new OmegaNum("1").mul(new OmegaNum("2").pow(level))),
     "upg2": new EvUpgrade(new OmegaNum("50"),
-        level => new OmegaNum(new OmegaNum("0.25").mul(level)).add(1),
-        level => new OmegaNum(eves.logBase("5").logBase("5").mul(level)).add(1)
+        level => new OmegaNum(new OmegaNum("0.3").mul(level)).add(1),
+        level => new OmegaNum(eves.logBase("5").logBase("5").mul(level)).add(1),
     )
 }
 var bigbangs = 0
