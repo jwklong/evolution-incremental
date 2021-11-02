@@ -17,6 +17,13 @@ function bigBang(no) {
     if (bbcosts[bigbangs] !== undefined && eves.gte(bbcosts[bigbangs][0]) && no !== "no") {
         eves = new OmegaNum("0")
         bigbangs += 1
+        for(const k of Object.getOwnPropertyNames(evupgrades))
+    {
+        if(evupgrades[k])
+        {
+            evupgrades[k].level = new OmegaNum("0");
+        }
+    }
     }
     bbcosts[bigbangs] === undefined ? document.getElementById("bigbangbutton").innerHTML = "No more Big Bangs available<br>More coming soon..." : document.getElementById("bigbangbutton").innerHTML = "Do a Big Bang.<br>" + bbcosts[bigbangs][0].toStringWithDecimalPlaces(4) + " Evolution Essence";
     document.getElementById("rank").innerHTML = bigbangs > 0 ? "Rank: " + bbcosts[bigbangs-1][1] : "Rank: Nothing"
