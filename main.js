@@ -80,7 +80,7 @@ setInterval(() => {
     saveGame()
 }, 15000);
 setInterval(() => {
-    evesps = bigbangs === 0 ? new OmegaNum("0") : new OmegaNum("1").mul(evupgrades.upg1.getEffect())
+    evesps = bigbangs === 0 ? new OmegaNum("0") : new OmegaNum("1").mul(evupgrades.upg1.getEffect()).mul(evupgrades.upg2.getEffect())
     eves = eves.add(evesps.div("100"))
     eves.gte(1/1000) ? document.getElementById("evescount").innerHTML = "You have " + eves.toStringWithDecimalPlaces(4) + " Evolution Essence (" + evesps.toStringWithDecimalPlaces(4) + "/s)" : null
 },10);
