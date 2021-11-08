@@ -9,7 +9,7 @@ class EvUpgrade {
         return this.effect(this.level)
     }
     getDesc() {
-        return this.basecost.pow(this.costgain(this.level)).toStringWithDecimalPlaces(3) + " Evolution Essence"
+        return this.basecost.pow(this.costgain(this.level)).toStringWithDecimalPlaces(4) + " Evolution Essence"
     }
     buy()
     {
