@@ -114,7 +114,7 @@ setInterval(() => {
 setInterval(() => {
     if (eves.isNaN()) eves = new OmegaNum(0)
     evesps = bigbangs < 1 ? new OmegaNum("0") : new OmegaNum("1").mul(evupgrades.upg1.getEffect()).mul(evupgrades.upg2.getEffect()).mul(evupgrades.upg3.getEffect())
-    eves = eves.add(evesps.div("100"))
+    eves = eves.add(evesps.div(60))
     eves.gte(1/1000) ? document.getElementById("evescount").innerHTML = "You have " + eves.toStringWithDecimalPlaces(4) + " Evolution Essence (" + evesps.toStringWithDecimalPlaces(4) + "/s)" : null
     tsbb += 0.01
-},10);
+},1000/60);
