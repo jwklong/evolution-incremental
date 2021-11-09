@@ -60,7 +60,7 @@ function bigBang(no) {
             document.getElementById("evbutton1").innerHTML = "Multiply Evolution Essence gain.<br>Level "+evupgrades.upg1.level+"<br>Effect: x"+evupgrades.upg1.getEffect().toStringWithDecimalPlaces(4)+"<br>"+evupgrades.upg1.getDesc();
             document.getElementById("evbutton2").innerHTML = "Evolution Essence mutliplies itself.<br>Level "+evupgrades.upg2.level+"<br>Effect: x"+evupgrades.upg2.getEffect().toStringWithDecimalPlaces(4)+"<br>"+evupgrades.upg2.getDesc();
             bigbangs === 2 ? document.getElementById("evbutton3").innerHTML = "Time since Big Bang multiplies EE gain.<br>Level "+evupgrades.upg3.level+"<br>Effect: x"+evupgrades.upg3.getEffect().toStringWithDecimalPlaces(4)+"<br>"+evupgrades.upg3.getDesc() : null
-        }, 1000/60);
+        }, 100);
     }
 }
 
@@ -114,7 +114,7 @@ setInterval(() => {
 setInterval(() => {
     if (eves.isNaN()) eves = new OmegaNum(0)
     evesps = bigbangs < 1 ? new OmegaNum("0") : new OmegaNum("1").mul(evupgrades.upg1.getEffect()).mul(evupgrades.upg2.getEffect()).mul(evupgrades.upg3.getEffect())
-    eves = eves.add(evesps.div(60))
+    eves = eves.add(evesps.div(100))
     eves.gte(1/1000) ? document.getElementById("evescount").innerHTML = "You have " + eves.toStringWithDecimalPlaces(4) + " Evolution Essence (" + evesps.toStringWithDecimalPlaces(4) + "/s)" : null
     tsbb += 0.01
-},1000/60);
+},10);
