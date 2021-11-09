@@ -60,7 +60,7 @@ function bigBang(no) {
             document.getElementById("evbutton1").innerHTML = "Multiply Evolution Essence gain.<br>Level "+evupgrades.upg1.level+"<br>Effect: x"+evupgrades.upg1.getEffect().toStringWithDecimalPlaces(4)+"<br>"+evupgrades.upg1.getDesc();
             document.getElementById("evbutton2").innerHTML = "Evolution Essence mutliplies itself.<br>Level "+evupgrades.upg2.level+"<br>Effect: x"+evupgrades.upg2.getEffect().toStringWithDecimalPlaces(4)+"<br>"+evupgrades.upg2.getDesc();
             bigbangs === 2 ? document.getElementById("evbutton3").innerHTML = "Time since Big Bang multiplies EE gain.<br>Level "+evupgrades.upg3.level+"<br>Effect: x"+evupgrades.upg3.getEffect().toStringWithDecimalPlaces(4)+"<br>"+evupgrades.upg3.getDesc() : null
-        }, 10);
+        }, 1000/60);
     }
 }
 
