@@ -22,8 +22,8 @@ div *{
 .button{
     border: 3px solid #ffffff;
     padding: 10px;
-    width: 30%;
-    height: 20%;
+    max-width: 25%;
+    max-height: 20%;
     background-color: #222222;
     -webkit-touch-callout: none;
     -webkit-user-select: none;

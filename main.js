@@ -1,21 +1,39 @@
 var eves = new OmegaNum("0")
 var evesps = new OmegaNum("0")
+var elec = new OmegaNum("0")
+var telec = new OmegaNum("0")
+
 const evupgrades = {
     "upg1": new EvUpgrade(new OmegaNum("15"),
-        level => new OmegaNum(new OmegaNum("0.25").mul(level)).add(1),
+        level => new OmegaNum(new OmegaNum("0.3").mul(level)).add(1),
         level => new OmegaNum("1").mul(new OmegaNum("2").pow(level))),
     "upg2": new EvUpgrade(new OmegaNum("50"),
-        level => new OmegaNum(new OmegaNum("0.3").mul(level)).add(1),
-        level => eves.gte(1) ? new OmegaNum(eves.logBase("5").logBase("5").mul(level)).add(1) : new OmegaNum(1)),
-    "upg3": new EvUpgrade(new OmegaNum("75000"),
-        level => new OmegaNum(new OmegaNum("0.4").mul(level)).add(1),
-        level => tsbb >= 1 ? new OmegaNum(new OmegaNum(tsbb).add(1).logBase("20").mul(level)).add(1) : new OmegaNum(1)
+        level => new OmegaNum(new OmegaNum("0.35").mul(level)).add(1),
+        level => eves.gte(1) ? new OmegaNum(eves.logBase("8").logBase("8").mul(level)).add(1) : new OmegaNum(1)),
+    "upg3": new EvUpgrade(new OmegaNum("75e4"),
+        level => new OmegaNum(new OmegaNum("1").mul(level)).add(1),
+        level => tsbb >= 1 ? new OmegaNum(new OmegaNum(tsbb).add(1).logBase("4").mul(level)).add(1) : new OmegaNum(1)
     )
 }
 var bigbangs = 0
 var tsbb = 0
 const bbcosts = [[new OmegaNum("0"),"Electron I"],[new OmegaNum("1e6"),"Electron II"]]
 var interval = null
+
+function hardReset() {
+    let confirmations = 0;
+    do
+    {
+        if(!confirm("Are you " + "really ".repeat(confirmations) + "sure you want to lose all your progress? " +
+            "Click " + (3 - confirmations) + " more " + (confirmations >= 2 ? "time" : "times") + " to reset."))
+        {
+            return;
+        }
+        confirmations++;
+    } while(confirmations < 3)
+    localStorage.setItem("EvolutionIncremental", "reset");
+    loadGame("reset")
+}
 
 function bigBang(no) {
     if (bbcosts[bigbangs] !== undefined && eves.gte(bbcosts[bigbangs][0]) && no !== "no") {
@@ -60,11 +78,11 @@ function saveGame(){
     }
 }
 
-function loadGame()
+function loadGame(str)
 {
     let loadObj;
-    str = localStorage.getItem("EvolutionIncremental") || null;
-    if(str === null) return;
+    str = str || localStorage.getItem("EvolutionIncremental") || "reset";
+    if(str === "reset") return;
     try
     {
         loadObj = JSON.parse(str);
